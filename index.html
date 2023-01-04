@@ -93,11 +93,48 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <p>一、快捷键<br>ctrl+c 强制停止</p>
+<p>ctrl+d 退出登出</p>
+<p>history 查看历史命令</p>
+<p>！命令前缀，自动匹配上一个命令</p>
+<p>ctrl+r 搜索历史命令</p>
+<p>ctrl+a|e 光标移动到命令开始或结束</p>
+<p>ctrl+&lt;-|-&gt; 左右跳单词</p>
+<p>ctrl+l 或clear命令 清屏</p>
+<p>二、软件安装</p>
+<p>1、命令行安装 yum命令</p>
+<p>语法：</p>
+<p>yum [-y] [install | remove |search] 软件名称</p>
+<p>-y 自动确认 无需手动确认安装或卸载过程</p>
+<p>install 安装</p>
+<p>remove 卸载</p>
+<p>search 搜索</p>
+<p>注意：安装的限权比较高</p>
+<p>安装需要联网（systemctl命令）</p>
+<p>2、apt命令（小拓展）（ubuntu用的）</p>
+<p>语法：</p>
+<p>apt [-y] [install | remove | rearch]</p>
+<p>三、systemctl命令</p>
+<p>linux的大部分软件都可以使用systtemctl命令进行控制：启动、停止、开机自启动</p>
+<p>语法：</p>
+<p>systemctl [start | stop | status | enable | disable ] 服务名</p>
+<p>分别是 启动 关闭 查看状态 开启开机自启 关闭开机自启</p>
+<p>NetworkManager 主网络服务</p>
+<p>network 副网络服务</p>
+<p>firewalld 防火墙服务</p>
+<p>sshd ssh服务</p>
+<p>四、软连接（类似快捷方式）</p>
+<p>1、ln(line)命令创建软连接</p>
+<p>语法：</p>
+<p>ln -s 参数1 参数2 </p>
+<p>-s 创建软连接</p>
+<p>参数1 被链接的文件或文件夹</p>
+<p>参数2 要链接去的目的地</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/01/04/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9C%80%E5%90%8E%E5%85%A8%E6%80%BB%E6%80%BB%E6%B1%873/" data-id="clch99akn0008f8sz01czdnx8" data-title="linux命令行最后全总总汇3" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/01/04/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9C%80%E5%90%8E%E5%85%A8%E6%80%BB%E6%80%BB%E6%B1%873/" data-id="clchdustp0009isszaopheqds" data-title="linux命令行最后全总总汇3" class="article-share-link">Share</a>
       
       
       
@@ -181,7 +218,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/01/04/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9C%80%E5%90%8E%E5%85%A8%E6%80%BB%E6%80%BB%E6%B1%872/" data-id="clch99aky000gf8sz2gd96sow" data-title="linux命令行最后全总总汇2" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/01/04/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9C%80%E5%90%8E%E5%85%A8%E6%80%BB%E6%80%BB%E6%B1%872/" data-id="clchdusu7000gisszh9tm2a0i" data-title="linux命令行最后全总总汇2" class="article-share-link">Share</a>
       
       
       
@@ -277,7 +314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/01/03/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9C%80%E5%90%8E%E5%85%A8%E6%80%BB%E6%80%BB%E6%B1%871/" data-id="clch99aky000hf8szbjps6jhb" data-title="linux命令行最后全总总汇1" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/01/03/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9C%80%E5%90%8E%E5%85%A8%E6%80%BB%E6%80%BB%E6%B1%871/" data-id="clchdusu8000hisszd42uf0he" data-title="linux命令行最后全总总汇1" class="article-share-link">Share</a>
       
       
       
@@ -316,7 +353,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/01/03/2023-happy-new-year/" data-id="clch99ake0000f8sz8nnkcafb" data-title="2023 happy new year" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/01/03/2023-happy-new-year/" data-id="clchdustf0000issz57rn8qx7" data-title="2023 happy new year" class="article-share-link">Share</a>
       
       
       
@@ -372,7 +409,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/25/linux%E5%91%BD%E4%BB%A4%E8%A1%8C4/" data-id="clch99akm0007f8sz169r35k8" data-title="linux命令行4" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/25/linux%E5%91%BD%E4%BB%A4%E8%A1%8C4/" data-id="clchdusto0007isszdd37byeq" data-title="linux命令行4" class="article-share-link">Share</a>
       
       
       
@@ -424,7 +461,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/22/linux%E5%91%BD%E4%BB%A4%E8%A1%8C3/" data-id="clch99akp000cf8szc2sra7gu" data-title="linux命令行4" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/22/linux%E5%91%BD%E4%BB%A4%E8%A1%8C3/" data-id="clchdusto0008issz1t9m8ay4" data-title="linux命令行4" class="article-share-link">Share</a>
       
       
       
@@ -476,7 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/18/linux%E5%91%BD%E4%BB%A4%E8%A1%8C2/" data-id="clch99akm0006f8szeajmdy33" data-title="linux命令行2" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/18/linux%E5%91%BD%E4%BB%A4%E8%A1%8C2/" data-id="clchdustn0006isszd3vse467" data-title="linux命令行2" class="article-share-link">Share</a>
       
       
       
@@ -531,7 +568,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/16/linux-net-control/" data-id="clch99akk0003f8szf121dyn4" data-title="linux net control" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/16/linux-net-control/" data-id="clchdustk0002isszd76mhf8o" data-title="linux net control" class="article-share-link">Share</a>
       
       
       
@@ -570,7 +607,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/05/linux%E5%91%BD%E4%BB%A4%E8%A1%8C1/" data-id="clch99akk0004f8sz4ghr2tqk" data-title="linux命令行1" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/05/linux%E5%91%BD%E4%BB%A4%E8%A1%8C1/" data-id="clchdustl0003issz72c8gu39" data-title="linux命令行1" class="article-share-link">Share</a>
       
       
       
@@ -609,7 +646,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/03/linux%E5%88%9D%E8%AF%86/" data-id="clch99akl0005f8sz2ooi2rk4" data-title="linux初识" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/03/linux%E5%88%9D%E8%AF%86/" data-id="clchdustm0005isszckbl4nj3" data-title="linux初识" class="article-share-link">Share</a>
       
       
       
