@@ -1,21 +1,73 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>misc杂项学习（粗）2 · BigbigPeanut’s blog</title><meta name="description" content="第二部分 ：题型有截图图片文件隐写第一种1、firework工具（未安装）使用winhex打开文件时会看到文件头部中包含firework的标识，通过firework可以找到隐藏图片。使用场景: 查看隐写的图片文件
-2、Exif工具（未安装）Exif按照IPEG的规格在JPEG中插入一些图像&amp;#x2F"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 6.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">BigbigPeanut’s blog</a></h3></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a target="_blank" rel="noopener" href="https://www.caicai.me"> CaiCai </a><span>&</span><a target="_blank" rel="noopener" href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">Home</a></li><li><a href="/about">Sobre</a></li><li><a href="/archives">Arquivo</a></li><li><a href="/links">Links</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>misc杂项学习（粗）2</a></h3></div><div class="post-content"><p>第二部分 ：题型有截图<br>图片文件隐写<br>第一种<br>1、firework工具（未安装）<br>使用winhex打开文件时会看到文件头部中包含firework的标识，通过firework可以找到隐藏图片。<br>使用场景: 查看隐写的图片文件</p>
-<p>2、Exif工具（未安装）<br>Exif按照IPEG的规格在JPEG中插入一些图像&#x2F;数字相机的信息数据以及缩略图像 可以通过与IPEG兼容的联网浏览器&#x2F;图片览器&#x2F;图像处理等一些软件来查看Exif格式的图像文件就跟浏览通常的PEG图像文件一样<br>图片右键属性，查看exif或查看详细信息，在相关选项卡中查找flag信息</p>
-<p>3.Stegsolve工具（未安装）<br>当两张jipg图片外观、大小、像素都基本相同时，可以考虑进行结合分析，即将两个文件的像素RGB值进行XOR、ADD、SUB等操作，看能否得到有用的信息，StegSolve可以方便的进行这些操作。<br>使用场景: 两张图片信息基本相同<br>可能涉及到顺序的问题</p>
-<p>4.LSB(最低有效位 Least significant Bit)<br>LSB替换隐写基本思想是用嵌入的秘密信息取代载体图像的最低比特位，原来的的7个高位平面与替秘密信息的最低位平面组合成含隐藏信息的新图形。<br>1.像素三原色(RGB)<br>2.通过修改像素中最低位的1bit来达到隐藏的效果<br>3.工具:<br>stegsolve<br>zsteg（命令行工具 全自动）<br>wbstego4   一般针对.bmp&#x2F;.pdf文件<br>python脚本来处理 将一下脚本放在kali中运行，将目标文件放在脚本同目录下，将脚本中的文件名修改为文件名，运行python即可<br>lsb解法：截图<br>？为什么图片会有很多通道 什么是图片的通道<br>备注：画图是一个很好用的工具</p>
-<p>4、TweakPNG工具（未安装）<br>TweakPNG是一款简单易用的PNG图像浏览工具,它允许查看和修改一些PNG图像文件的元信息存储<br>使用场景: 文件头正常却无法打开文件，利用TweakPNG修改CRC</p>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>misc杂项学习（粗）2 · BigbigPeanut’s blog</title><meta name="description" content="第二部分 ：题型有截图
+图片文件隐写
+第一种1、firework工具（未安装）
+使用winhex打开文件时会看到文件头部中包含firework的标识，通过firework可以找到隐藏图片。
+使用场景: 查看隐写的图片文件
+2、Exif工具（未安装）
+Exif按照IPEG的规格在JPEG中插入一些图像"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 6.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">BigbigPeanut’s blog</a></h3></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a target="_blank" rel="noopener" href="https://www.caicai.me"> CaiCai </a><span>&</span><a target="_blank" rel="noopener" href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>misc杂项学习（粗）2</a></h3></div><div class="post-content"><p>第二部分 ：题型有截图</p>
+<p>图片文件隐写</p>
+<p>第一种<br>1、firework工具（未安装）</p>
+<p>使用winhex打开文件时会看到文件头部中包含firework的标识，通过firework可以找到隐藏图片。</p>
+<p>使用场景: 查看隐写的图片文件</p>
+<p>2、Exif工具（未安装）</p>
+<p>Exif按照IPEG的规格在JPEG中插入一些图像&#x2F;数字相机的信息数据以及缩略图像 可以通过与IPEG兼容的联网浏览器&#x2F;图片览器&#x2F;图像处理等一些软件来查看Exif格式的图像文件就跟浏览通常的PEG图像文件一样<br>图片右键属性，查看exif或查看详细信息，在相关选项卡中查找flag信息</p>
+<p>3.Stegsolve工具（未安装）</p>
+<p>当两张jipg图片外观、大小、像素都基本相同时，可以考虑进行结合分析，即将两个文件的像素RGB值进行XOR、ADD、SUB等操作，看能否得到有用的信息，StegSolve可以方便的进行这些操作。</p>
+<p>使用场景: 两张图片信息基本相同</p>
+<p>可能涉及到顺序的问题</p>
+<p>4.LSB(最低有效位 Least significant Bit)</p>
+<p>LSB替换隐写基本思想是用嵌入的秘密信息取代载体图像的最低比特位，原来的的7个高位平面与替秘密信息的最低位平面组合成含隐藏信息的新图形。</p>
+<p>1.像素三原色(RGB)</p>
+<p>2.通过修改像素中最低位的1bit来达到隐藏的效果</p>
+<p>3.工具:</p>
+<p>stegsolve</p>
+<p>zsteg（命令行工具 全自动）</p>
+<p>wbstego4   一般针对.bmp&#x2F;.pdf文件</p>
+<p>python脚本来处理 将一下脚本放在kali中运行，将目标文件放在脚本同目录下，将脚本中的文件名修改为文件名，运行python即可</p>
+<p>lsb解法：</p>
+<p>截图</p>
+<p>？为什么图片会有很多通道 什么是图片的通道</p>
+<p>备注：画图是一个很好用的工具</p>
+<p>4、TweakPNG工具（未安装）</p>
+<p>TweakPNG是一款简单易用的PNG图像浏览工具,它允许查看和修改一些PNG图像文件的元信息存储</p>
+<p>使用场景: 文件头正常却无法打开文件，利用TweakPNG修改CRC</p>
 <p>CRC：文件头部、高度、宽度根据某种算法得出的一个校验值</p>
-<p>例:<br>1.当PNG文件头正常但无法打开文件，可能是CRC校验出错，可以尝试通过TweakPNG打开PNG，会弹出校验错误的提示，这里显示CRC是fe1a5ab6，正确的是b0a7a9f1。打开winhex搜索fea5ab6将其改为b0a7a9f1</p>
-<p>2.有事CRC没有错误，但是图片的高度或者狂赌发生了错误，需要通过CRC计算出正确的高度或者宽度。（python脚本）<br>推荐一个截图软件：Snipaste</p>
-<p>5、Bftools命令行工具（未安装）<br>bftools用于解密图片信息<br>使用场景: 在windows的cmd下，对加密过的图片文件进行解密格式:<br>Bftools.exe decode braincopter 要解密的图片名称 -output 输出文件名<br>Bftools.exe run 上一步输出的文件 </p>
-<p>7.SilentEye工具（未安装）<br>silenteye是一款可以将文字或者文件隐藏到图片的解密工具<br>使用场景: windows下打开silentEve工具，对加密的图片进行解密<br>例:1.使用silentEye程序打开目标图片，点击image-&gt;decode，点击decode，可以查看隐藏文件，点击保存即可</p>
-<p>8.JPG图像加密（专门针对JPG）<br>1）Stegdetect 命令行工具（未安装）<br>工具探测加密方式<br>Stegdetect耀序主要用于分析PEG 文件，因此用stegdetect可以检测到通teg、JPHlide、 OutGuess、 invislble Secrets、F5、 oppendx和Camoufioge等这些隐写工具隐装的信息。<br>格式:<br>stegdetect xxx.jpg<br>stegdetect -s 敏感度 xxx.jpg</p>
-<p>2）Jphide（Jphs工具解密）<br> Jphide是基于最低有效位LSB的JPEG格式图像隐写算法<br>例:<br>Stegdetect提示jphide加密时，可以用Jphs工具进行解密，打开jphswin.exe，使用open jpeg打开图片，点击seek，输入密码和确认密码，在弹出文件框中选择要保存的解密文件位置即可，结果保存成txt文件。</p>
+<p>例:</p>
+<p>1.当PNG文件头正常但无法打开文件，可能是CRC校验出错，可以尝试通过TweakPNG打开PNG，会弹出校验错误的提示，这里显示CRC是fe1a5ab6，正确的是b0a7a9f1。打开winhex搜索fea5ab6将其改为b0a7a9f1</p>
+<p>2.有事CRC没有错误，但是图片的高度或者狂赌发生了错误，需要通过CRC<br>计算出正确的高度或者宽度。（python脚本）<br>推荐一个截图软件：Snipaste</p>
+<p>5、Bftools命令行工具（未安装）</p>
+<p>bftools用于解密图片信息</p>
+<p>使用场景: 在windows的cmd下，对加密过的图片文件进行解密格式:<br>Bftools.exe decode braincopter 要解密的图片名称 -output 输出文件名</p>
+<p>Bftools.exe run 上一步输出的文件 </p>
+<p>7.SilentEye工具（未安装）</p>
+<p>silenteye是一款可以将文字或者文件隐藏到图片的解密工具</p>
+<p>使用场景: windows下打开silentEve工具，对加密的图片进行解密</p>
+<p>例:1.使用silentEye程序打开目标图片，点击image-&gt;decode，点击decode，可以查看隐藏文件，点击保存即可</p>
+<p>8.JPG图像加密（专门针对JPG）</p>
+<p>1）Stegdetect 命令行工具（未安装）<br>工具探测加密方式</p>
+<p>Stegdetect耀序主要用于分析PEG 文件，因此用stegdetect可以检测到通teg、JPHlide、 OutGuess、 invislble Secrets、F5、 oppendx和Camoufioge等这些隐写工具隐装的信息。</p>
+<p>格式:</p>
+<p>stegdetect xxx.jpg</p>
+<p>stegdetect -s 敏感度 xxx.jpg</p>
+<p>2）Jphide（Jphs工具解密）</p>
+<p> Jphide是基于最低有效位LSB的JPEG格式图像隐写算法</p>
+<p>例:</p>
+<p>Stegdetect提示jphide加密时，可以用Jphs工具进行解密，打开jphswin.exe，使用open jpeg打开图片，点击seek，输入密码和确认密码，在弹出文件框中选择要保存的解密文件位置即可，结果保存成txt文件。</p>
 <ol start="3">
-<li>Outguess<br>outguess一般用于解密文件信息。<br>使用场景: stegdetect识别出来或者题目提示是outguess加密的图片<br>该工具需编译使用: .&#x2F;configure &amp;&amp; make &amp;&amp; make install<br>格式：<br>outguess -r 要解密的文件名 输出结果文件名</li>
+<li>Outguess</li>
 </ol>
-<p>4)F5<br>F5一般用于解密文件信息。<br>使用场景: Stegdetect识别出来是F5加密的图片或题目提示是F5加密的图片<br>进入F5-steganography_F5目录，将图片文件拷贝至该目录下，从CMD进入该目录<br>格式: Java Exrtact 要解密的文件名-p 密码 </p>
-<p>9、二维码处理（CQR工具）<br>1）使用二维码扫码工具CQR.exe打开图片，找到内容字段<br>2）如果二维码某个定位角被覆盖了，改工具有时候也可以自动识别，如果识别失败，需要使用PS或画图工具将另外几个角的定位符移动到相应的位置，补全二维码。<br>3）如果某个二维码的定位点中间是白色，可能被反色了，使用工具把颜色反色回来在扫描即可。<br>可能还需要这个QR扫码工具</p>
+<p>outguess一般用于解密文件信息。<br>使用场景: stegdetect识别出来或者题目提示是outguess加密的图片<br>该工具需编译使用: .&#x2F;configure &amp;&amp; make &amp;&amp; make install</p>
+<p>格式：</p>
+<p>outguess -r 要解密的文件名 输出结果文件名</p>
+<p>4)F5</p>
+<p>F5一般用于解密文件信息。</p>
+<p>使用场景: Stegdetect识别出来是F5加密的图片或题目提示是F5加密的图片</p>
+<p>进入F5-steganography_F5目录，将图片文件拷贝至该目录下，从CMD进<br>入该目录</p>
+<p>格式: Java Exrtact 要解密的文件名-p 密码 </p>
+<p>9、二维码处理（CQR工具）</p>
+<p>1）使用二维码扫码工具CQR.exe打开图片，找到内容字段</p>
+<p>2）如果二维码某个定位角被覆盖了，改工具有时候也可以自动识别，如果识别失败，需要使用PS或画图工具将另外几个角的定位符移动到相应的位置，补全二维码。</p>
+<p>3）如果某个二维码的定位点中间是白色，可能被反色了，使用工具把颜色反色回来在扫描即可。<br>可能还需要这个QR扫码工具</p>
 <p><a target="_blank" rel="noopener" href="http://encode.chahuo.com/">http://encode.chahuo.com/</a> DES等各种加密的解密网站</p>
 <p>等数学考试完 再整理好看 并加上图片解说</p>
-</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-02-11</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2023/02/11/misc杂项学习（粗）2/,BigbigPeanut’s blog,misc杂项学习（粗）2,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2023/02/12/misc%E6%9D%82%E9%A1%B9%E5%AD%A6%E4%B9%A0%EF%BC%88%E7%B2%97%EF%BC%893/" title="misc杂项学习（粗）3">Post Anterior</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2023/02/11/misc%E6%9D%82%E9%A1%B9%E5%AD%A6%E4%B9%A0%EF%BC%88%E7%B2%97%EF%BC%891/" title="misc杂项学习（粗）1">Próximo post</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-02-11</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2023/02/11/misc杂项学习（粗）2/,BigbigPeanut’s blog,misc杂项学习（粗）2,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2023/02/12/misc%E6%9D%82%E9%A1%B9%E5%AD%A6%E4%B9%A0%EF%BC%88%E7%B2%97%EF%BC%893/" title="misc杂项学习（粗）3">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2023/02/11/misc%E6%9D%82%E9%A1%B9%E5%AD%A6%E4%B9%A0%EF%BC%88%E7%B2%97%EF%BC%891/" title="misc杂项学习（粗）1">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
