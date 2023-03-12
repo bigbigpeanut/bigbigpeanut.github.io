@@ -1,4 +1,25 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>BigbigPeanut’s blog</title><meta name="description" content="A Blog Powered By Hexo"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 6.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">BigbigPeanut’s blog</a></h3></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a target="_blank" rel="noopener" href="https://www.caicai.me"> CaiCai </a><span>&</span><a target="_blank" rel="noopener" href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a class="current" href="/">Home</a></li><li><a href="/about">Sobre</a></li><li><a href="/archives">Arquivo</a></li><li><a href="/links">Links</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/02/21/sql%E6%B3%A8%E5%85%A51/">sql注入1</a></h3></div><div class="post-content"><p>3306是MYSQL的端口
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>BigbigPeanut’s blog</title><meta name="description" content="A Blog Powered By Hexo"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 6.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">BigbigPeanut’s blog</a></h3></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a target="_blank" rel="noopener" href="https://www.caicai.me"> CaiCai </a><span>&</span><a target="_blank" rel="noopener" href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a class="current" href="/">Home</a></li><li><a href="/about">Sobre</a></li><li><a href="/archives">Arquivo</a></li><li><a href="/links">Links</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/03/05/sqli-labs-5-8/">sqli-labs-5-8</a></h3></div><div class="post-content"><p>第五关从第5关开始，就有些不太一样了，我们按照常规思路
+寻找注入点
+?id=1
+
+页面是不会显示出关于账户和密码的信息
+经过多次尝试之后，发现 页面只有两种
+
+
+页面只会显示两种：成功和没成功两种情况
+这时我们就不能使用联合注入了，因为联合注入需要回显来判断(来自27关后的补充当然我们还可以使用：堆叠注入和报错注...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-03-05</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/03/04/sqli%E9%9D%B6%E5%9C%BA%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%8C%E6%99%9A%E4%B8%8A%E6%9B%B4%E6%9B%B4%E6%96%B0%E2%80%9C/">sqli靶场持续更新中，晚上更更新“</a></h3></div><div class="post-content"><p>更新中嗷（图片）
+</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-03-04</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/02/22/sqli-labs-1-4/">sqli-labs-1~4</a></h3></div><div class="post-content"><p>sqli-labs-level1在上一个内容中，我们得到最后的答案是
+?id=-1&#39; union select 1,2,group_concat(username ,id , password) from users--+
+
+于是我们来看看本关的源码
+
+标红的部分是一个单引号 所以我们在尝试之后发现单引号...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-02-22</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/02/21/sqli-labs-1/">sqli-labs-1</a></h3></div><div class="post-content"><p>一、sqli-labs第一关1.1判断是否存在sql注入
+1、页面提示输入数字值的ID作为参数，我们输入?id&#x3D;1
+
+2、将1改成2，会 发现返回的内容都不同，所以我们的输入已经在数据库里面查询了
+3、接下来我们开始判断sql语句能否被拼接，是字符型还是数字型的
+输入输入’–+，将之后的语句屏蔽注释掉
+...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-02-21</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/02/21/sql%E6%B3%A8%E5%85%A51/">sql注入1</a></h3></div><div class="post-content"><p>3306是MYSQL的端口
 SSH的端口是22
 FTP的端口是21
 DNS域名解析服务
@@ -24,29 +45,4 @@ ASCII 码使用指定的7位或8位二进制数组合来表示128 或256 种可�
 密码编码学：
 (1)密码编码学是密码学的一个分支，研究与信息安全(例如:机密性、完整性、可鉴别性)有关的数学技术。
 (2)密码编码学是包含数据变换的原理、工具和方法的一门学科，这种数据变换的目的是为了隐藏数据的信息内容，阻止对数据的篡改以及防止未经认可使用数据。
-(3)密码编码学是论述使明文变得不可懂...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-02-12</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/02/12/misc%E6%9D%82%E9%A1%B9%E5%AD%A6%E4%B9%A0%EF%BC%88%E7%B2%97%EF%BC%894/">misc杂项学习（粗）4</a></h3></div><div class="post-content"><p>第四部分：有解题步骤截图
-
-流量取证技术 
-CTF 比赛中，流量包的取证分析是另一项重要的考察方向。通常比赛中会提供一个包含流量数据的PCAP 文件，有时候也会需要选手们先进行修复或重构传输文件后，再进行分析。
-1)总体把握
--协议分级（各种协议需要知道http、tcp、smtp等）
--端点统计
-2)过滤筛选
--...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-02-12</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/02/12/misc%E6%9D%82%E9%A1%B9%E5%AD%A6%E4%B9%A0%EF%BC%88%E7%B2%97%EF%BC%893/">misc杂项学习（粗）3</a></h3></div><div class="post-content"><p>第三部分：
-压缩文件处理
-1、伪加密
-如果压缩文件是加密的，或文件头正常但解压缩错误，首先尝试文件是否为伪加密。zip文件是否加密是通过标识符来显示的，在每个文件的文件目录字段有一位专门标识了文件是否加密，将其设置为00表示该文件未加密，如果成功解压则表示文件为伪加密，如果解压出错说明文件为真加密。
-使用场景: ...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-02-12</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/02/11/misc%E6%9D%82%E9%A1%B9%E5%AD%A6%E4%B9%A0%EF%BC%88%E7%B2%97%EF%BC%892/">misc杂项学习（粗）2</a></h3></div><div class="post-content"><p>第二部分 ：
-
-图片文件隐写
-第一种1、firework工具
-使用winhex打开文件时会看到文件头部中包含firework的标识，通过firework可以找到隐藏图片。
-使用场景: 查看隐写的图片文件
-
-2、Exif工具
-Exif按照IPEG的规格在JPEG中插入一些图像&#x2F;数字相机的信息数据以及缩略图...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-02-11</span><i class="fa fa-tag"></i></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/02/11/misc%E6%9D%82%E9%A1%B9%E5%AD%A6%E4%B9%A0%EF%BC%88%E7%B2%97%EF%BC%891/">misc杂项学习（粗）1</a></h3></div><div class="post-content"><p>第一部分：文件操作隐写说明：几乎所有命令行都是在kali的linux命令行进行实现的
-把flag、key等答案以某种文件格式进行隐藏可能看着是图片，但其实不是图片。
-第一种
-第一步 文件操作
-1、分析文件类型
-flie命令行命令（ 命令）（不知道系统是否自带）（未安装）-&gt;当文件没有后缀名或有后缀名而无法正...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-02-11</span><i class="fa fa-tag"></i></div></div></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/">Anterior</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/page/3/">Próximo</a></li></ul></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
+(3)密码编码学是论述使明文变得不可懂...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-02-12</span><i class="fa fa-tag"></i></div></div></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/">Anterior</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/page/3/">Próximo</a></li></ul></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
