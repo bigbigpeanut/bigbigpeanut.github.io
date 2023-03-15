@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>upload-labs-前言和1 · BigbigPeanut’s blog</title><meta name="description" content="新的靶场来啦，学完这个文件上传、还有文件包含，冲冲冲，这个靶场会简单一些，内容也相对较少，更依赖与BP、剑蚁等工具的使用。
+分割线
+——————————————————————————————
+在开始前，我们要安装两个软件:BP和剑蚁，这两个软件不可或缺
+我们先解释一下为什么有文件上传漏洞把
+文件上"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 6.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">BigbigPeanut’s blog</a></h3></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a target="_blank" rel="noopener" href="https://www.caicai.me"> CaiCai </a><span>&</span><a target="_blank" rel="noopener" href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">Home</a></li><li><a href="/about">Sobre</a></li><li><a href="/archives">Arquivo</a></li><li><a href="/links">Links</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>upload-labs-前言和1</a></h3></div><div class="post-content"><p>新的靶场来啦，学完这个文件上传、还有文件包含，冲冲冲，这个靶场会简单一些，内容也相对较少，更依赖与BP、剑蚁等工具的使用。</p>
+<p>分割线</p>
+<p>——————————————————————————————</p>
+<p>在开始前，我们要安装两个软件:BP和剑蚁，这两个软件不可或缺</p>
+<p>我们先解释一下为什么有文件上传漏洞把</p>
+<h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p>如今网页的功能日益强大，在web程序中已经允许用户提交文件（图片、视频、音频、文本等等），而就是在这个文件上传的操作中存在的超多的隐患和漏洞</p>
+<h1 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h1><p>上传文件的时候，如果web程序没有对上传的文件进行严格的过滤的话，就容易让恶意脚本被上传，导致网站甚至整个服务器被控制或者修改</p>
+<p>其中，恶意的脚本（asp、aspx、php、jsp）又被称为：WebShell，它具有强大的功能、如查看服务器目录、文件、执行最高权限的命令等等。</p>
+<p>总的来说会造成很大的损失</p>
+<h1 id="文件上传漏洞成因"><a href="#文件上传漏洞成因" class="headerlink" title="文件上传漏洞成因"></a>文件上传漏洞成因</h1><p>文件上传漏洞的成因复杂，</p>
+<p>一方面，Web 应用开放了文件上传功能，并且对上传的文件没有进行足够的限制</p>
+<p>另一方面，程序开发部署时候，没有考虑到系统特性和过滤不严格</p>
+<p>再者就是，攻击者通过Web服务器解析漏洞绕过限制，导致可以上传任意文件。</p>
+<h1 id="文件上传漏洞危害"><a href="#文件上传漏洞危害" class="headerlink" title="文件上传漏洞危害"></a>文件上传漏洞危害</h1><p>最直接的就是上床恶意脚本、程序等，导致服务器被脚本控制，被恶意操作者为所欲为</p>
+<p>而且！在同一服务器下的网站也会被控制，有着链式反应的危害</p>
+<h1 id="为什么上传的文件可以达到控制的目的呢"><a href="#为什么上传的文件可以达到控制的目的呢" class="headerlink" title="为什么上传的文件可以达到控制的目的呢"></a>为什么上传的文件可以达到控制的目的呢</h1><p>web服务器想要开启上传的功能，并且上传api接口对外开放，web用户就需要有可写的权限，甚至有时候还要有执行的权限，才能使上传的文件达到正常的操作目的。</p>
+<p>要想完美利用文件上传漏洞，就是上传的文件可以执行，也就是Web 容器可以解析我们上传的脚本，无论脚本以什么样的形式存在。</p>
+<h1 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h1><p>木马是Shell里面一个很小的范围</p>
+<p>Shell通常被分类成：大马、小马、木马等等</p>
+<h2 id="小马"><a href="#小马" class="headerlink" title="小马"></a>小马</h2><p>小马通常指一句话木马，因为其代码量较小，就是一句简单的代码。</p>
+<p>一句话木马短小精悍，功能强大，是为了绕过waf的检测，虽然出现了无数的变形,但本质是不变的：木马的函数执行了我们发送的命令。</p>
+<p>通过GET、POST、COOKIE三种方式提交数据</p>
+<p>用$_GET[‘ ‘]、$_POST[‘ ‘]、$_COOKIE[‘ ‘]接收传递的数据，并把接收的数据传递给一句话木马中执行命令的函数，进而执行命令。</p>
+<p>看看大概张什么样子吧</p>
+<pre><code>PHP：&lt;?php @eval($_REQUST[&#39;cmd&#39;]);?&gt;
+
+ASP：&lt;%eval request(&quot;cmd&quot;)%&gt;
+
+ASPX：&lt;%@ Page Language=&quot;Jscript&quot;%&gt;
+
+&lt;%eval(Request.Item[&quot;cmd&quot;],&quot;unsafe&quot;;)%&gt;
+</code></pre>
+<p>经典的一句话木马大多都只有两个部分，一个是可以执行代码的函数部分，个是接收数据的部分。</p>
+<p>例如 <?php @eval($_POST['cmd']);?></p>
+<p>eval就是执行命令的函数，$_POST[ ‘cmd’]就是接收的数据。eval函数把接收的数据当作PHP代码来执行。这样我们就能够让插入了一句话木马的网站执行我们传递过去的任意PHP语句。</p>
+<h1 id="大马"><a href="#大马" class="headerlink" title="大马"></a>大马</h1><p>之所以叫大马，是因为与小马(一句话木马)区分开，并且代码比较大，但是功能比较丰富。同样，大马有很多种脚本格式，其功能基本相同。每个团队都有自己的定制大马</p>
+<p>接下来的文件上传需要学习以下方法：</p>
+<p>客户端检测与绕过</p>
+<p>服务器检测与绕过</p>
+<p>后缀名检测与绕过</p>
+<p>MIME类型检测与绕过</p>
+<p>文件内容检测与绕过</p>
+<p>00截断检测与绕过</p>
+<p>条件竞争检测与绕过</p>
+<p>加油吧少年</p>
+<h1 id="upload-labs-1"><a href="#upload-labs-1" class="headerlink" title="upload-labs-1"></a>upload-labs-1</h1><p>第一关</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-03-15</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2023/03/15/upload-labs-1/,BigbigPeanut’s blog,upload-labs-前言和1,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/2023/03/15/CARF%E5%AD%A6%E4%B9%A01/" title="CARF学习1">Próximo post</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
