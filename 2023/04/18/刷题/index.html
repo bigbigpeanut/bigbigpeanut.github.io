@@ -89,6 +89,48 @@
 <p>所以最后flag就是</p>
 <p>CFI{Kotik_Kadyrov_of_Riga}</p>
 <p>改一下</p>
-<p>flag{Kotik_Kadyrov_of_Riga}</p>
-<p>上课去，牺牲早八做题，等等英语考试</p>
+<p>flag{Kotik_ Kadyrov_ of_ Riga}</p>
+<p>空格记得删掉</p>
+<h2 id="上课去，牺牲早八做题，等等英语考试"><a href="#上课去，牺牲早八做题，等等英语考试" class="headerlink" title="上课去，牺牲早八做题，等等英语考试"></a>上课去，牺牲早八做题，等等英语考试</h2><h1 id="黑客帝国"><a href="#黑客帝国" class="headerlink" title="黑客帝国"></a>黑客帝国</h1><p>提示：等同于没有</p>
+<p>文本，一眼二进制，rar文件，爆破，解压</p>
+<p>发现图片，但是损坏，一般是文件头文件尾。</p>
+<p>改一下文件头，png的文件头不是这个</p>
+<p>ffd8ffd0</p>
+<p>得到图片，得到flag</p>
+<p>flag{57cd4cfd4e07505b98048ca106132125} </p>
+<h1 id="你能看懂音符嘛"><a href="#你能看懂音符嘛" class="headerlink" title="你能看懂音符嘛"></a>你能看懂音符嘛</h1><p>rar</p>
+<p>修复一下文件头，是文档</p>
+<p>寻找一番，找到音符</p>
+<p>♭♯♪‖¶♬♭♭♪♭‖‖♭♭♬‖♫♪‖♩♬‖♬♬♭♭♫‖♩♫‖♬♪♭♭♭‖¶∮‖‖‖‖♩♬‖♬♪‖♩♫♭♭♭♭♭§‖♩♩♭♭♫♭♭♭‖♬♭‖¶§♭♭♯‖♫∮‖♬¶‖¶∮‖♬♫‖♫♬‖♫♫§&#x3D;</p>
+<p>解码 发现</p>
+<p>MRCTF{thEse_n0tes_ArE_am@zing~}</p>
+<p>改一下</p>
+<p>flag{thEse_n0tes_ArE_am@zing~}</p>
+<h1 id="HBNIS2018-caesar"><a href="#HBNIS2018-caesar" class="headerlink" title="[HBNIS2018]caesar"></a>[HBNIS2018]caesar</h1><p>一个文本….里面是题目和描述</p>
+<p>描述：gmbhjtdbftbs</p>
+<p>这一串东西，感觉就是涉及密码学了</p>
+<p>进行各种密码学的统计和脚本跑一下吧</p>
+<p>第94种可能可以看到：</p>
+<p>flagiscaesar</p>
+<p>OK，flag出来了</p>
+<p>flag{flagiscaesar}</p>
+<h1 id="HBNIS2018-低个头"><a href="#HBNIS2018-低个头" class="headerlink" title="[HBNIS2018]低个头"></a>[HBNIS2018]低个头</h1><p>也是一样的文本，密码学的脚本跑一下</p>
+<p>没跑出来</p>
+<p>再看看题目，低个头…</p>
+<p>键盘！！</p>
+<p>连起来，CTF</p>
+<p>flag{CTF}  脑洞题哈哈哈</p>
+<h1 id="SUCTF2018-single-dog"><a href="#SUCTF2018-single-dog" class="headerlink" title="[SUCTF2018]single dog"></a>[SUCTF2018]single dog</h1><p>一张.jpg。文件末有txt，分离一下</p>
+<p>一个压缩包和一个文本，文本是文字表情包，也是解密了，查查资料</p>
+<p>资料说这是AAENCODE aaencode解码</p>
+<pre><code> function a()
+ &#123;
+ var a=&quot;SUCTF&#123;happy double eleven&#125;&quot;;
+ alert(&quot;双十一快乐&quot;);
+ &#125;
+ a();
+</code></pre>
+<p>SUCTF{happy double eleven}</p>
+<p>改一下</p>
+<p>flag{happy double eleven}</p>
 </div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-04-18</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2023/04/18/刷题/,BigbigPeanut’s blog,2023-04-18到04-21刷题记录,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/2023/04/10/%E6%9C%80%E8%BF%91%E4%BA%92%E8%81%94%E7%BD%91-%E7%9A%84%E7%AB%9E%E8%B5%9B%E8%AE%A9%E6%88%91%E5%80%8D%E6%84%9F%E5%8E%8B%E5%8A%9B%EF%BC%8C%E5%8D%9A%E5%AE%A2%E6%9A%82%E5%81%9C%E6%9B%B4%E6%96%B0/" title="最近互联网+的竞赛让我倍感压力，博客暂停更新">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
