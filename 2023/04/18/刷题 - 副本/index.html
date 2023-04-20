@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>2023-04-18到04-21刷题记录2 · BigbigPeanut’s blog</title><meta name="description" content="稍微分p一下
+john-in-the-middle流量包
+发现没什么有用的信息，就是http流的内容比较多，media type也是比较多的，导出来
+这个到这里不会了，看来别人的wp，说是这里面两个图片用steg合成…
+真想不到，尝试一下
+在add里面看到了flag…
+flag{J0hn_th3_S"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 6.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">BigbigPeanut’s blog</a></h3></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a target="_blank" rel="noopener" href="https://www.caicai.me"> CaiCai </a><span>&</span><a target="_blank" rel="noopener" href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>2023-04-18到04-21刷题记录2</a></h3></div><div class="post-content"><p>稍微分p一下</p>
+<h1 id="john-in-the-middle"><a href="#john-in-the-middle" class="headerlink" title="john-in-the-middle"></a>john-in-the-middle</h1><p>流量包</p>
+<p>发现没什么有用的信息，就是http流的内容比较多，media type也是比较多的，导出来</p>
+<p>这个到这里不会了，看来别人的wp，说是这里面两个图片用steg合成…</p>
+<p>真想不到，尝试一下</p>
+<p>在add里面看到了flag…</p>
+<p>flag{J0hn_th3_Sn1ff3r}</p>
+<p>这题打个星号，不会不会，我在想不会是一个个试出来的把，后面问了，还真是，果然misc的尽头是手敲</p>
+<h1 id="ACTF新生赛2020-swp"><a href="#ACTF新生赛2020-swp" class="headerlink" title="[ACTF新生赛2020]swp"></a>[ACTF新生赛2020]swp</h1><p>提示：swp，题目感觉拼尽全力在提醒我们了</p>
+<p>这题…经过尝试之后，发现binwalk后有zip，解压是流量包，然后最后寻找flag就行啦</p>
+<h2 id="接下来回顾一下nk2023把"><a href="#接下来回顾一下nk2023把" class="headerlink" title="接下来回顾一下nk2023把"></a>接下来回顾一下nk2023把</h2><p>回顾了一下，可以学到很多东西</p>
+<h1 id="THMaster"><a href="#THMaster" class="headerlink" title="THMaster"></a>THMaster</h1><p>游戏，使用东方wiki修改器就好啦，在联系模式前进行改分，进入，找一找可以找到flag</p>
+<p>010打开，文件末</p>
+<h1 id="easy-bmp"><a href="#easy-bmp" class="headerlink" title="easy-bmp"></a>easy-bmp</h1><p>很自然的改高宽</p>
+<p>height改高，width改宽，可以根据图片性质改</p>
+<p>bmp的宽是比较特殊的</p>
+<p>宽要根据bmp性质算一下，因为是32位深，所以1589466&#x2F;4&#x2F;283&#x3D;1404</p>
+<p>所以图片的宽为1404 直接拖进010里改就行</p>
+<p>或者脚本</p>
+<pre><code>import struct
+import zlib
+f = open(&#39;misc31.bmp&#39;,&#39;rb&#39;)
+c = f.read()
+width = c[18:22]
+height = c[22:26]
+ for i in range(900,1500):
+    f1 = open(&#39;bpout&#39;+str(i)+&#39;.bmp&#39;,&#39;wb&#39;)
+    img = c[:18]+struct.pack(&#39;&gt;i&#39;,i)[::-1]+c[22:]
+    f1.write(img)
+    f1.close()
+</code></pre>
+<p>两个图片改好了就可以拼起来得到密钥</p>
+<p>BMP_Height_width_easy</p>
+<p>解压后发现是一个很小很小的1*1的图片，不过大小挺大的，根据各种尝试，应该也是改高改宽，然后发现前面的图片右下角都有个same，应该就是提示是正方形了。</p>
+<p>我们根据性质再算一下，大概360左右</p>
+<p>得到二维码，扫码得到flag</p>
+<p>NKCTF{eab1291e-9e37-4ff1-b76d-f1af63eaad43}</p>
+<h1 id="三体"><a href="#三体" class="headerlink" title="三体"></a>三体</h1><p>这题，一个b站视频可以让你融会贯通，跳</p>
+<p>NKCTF{3d77dc1a37b2d1ebf489c973f554ea10}</p>
+<h1 id="easy-rgb"><a href="#easy-rgb" class="headerlink" title="easy_rgb"></a>easy_rgb</h1><p>两个压缩包，key和rgb</p>
+<p>只能先从key下手</p>
+<p>key是拼图，这里建议ps手动拼，因为拼图数量不多，多了脚本也不一定行</p>
+<p>拼出来就是密钥</p>
+<p>解压rgb，里面三个文本，r、g和b</p>
+<p>很容易可以想到，rgb要拼接在一起，上脚本斥候！！</p>
+<p>经过脚本斥候后，粘贴到010打开</p>
+<p>ok，是zip，这里要注意到zip的010文件尾有aes-128，解压先</p>
+<p>一串加密的，结合aes-128</p>
+<p>放到网站解码一下</p>
+<p>得到flag</p>
+<p>NKCTF{603fcdfc-652b-40e4-90cf-f27c2edc2d9f}</p>
+<h1 id="easy-word"><a href="#easy-word" class="headerlink" title="easy_word"></a>easy_word</h1><p>这题word一点也不easy</p>
+<p>OK 根据提示，爆破一下</p>
+<p>h4evOF90</p>
+<p>打开，发现是假的flag</p>
+<p>然后然后我就不会了…</p>
+<p>看了别人的wp，先把加密关了</p>
+<p>然后再010打开，发现是zip，改后缀解压</p>
+<p>一张图片，得到密钥</p>
+<p>Welcome_to_NKCTF</p>
+<p>然后发现</p>
+<p>并且用 StegSolve 发现有 LSB 隐藏信息的痕迹</p>
+<p>经过多次尝试 发现是cloacked-pixel</p>
+<p>Python2 lsb.py extract image1.png out Welcome_to_NKCTF</p>
+<p>运行得到flag</p>
+<p>NKCTF{dc0684dd-5a57-4d47-b9c0-debed0ef28b9}</p>
+<h1 id="first-spam-of-rabbit-year"><a href="#first-spam-of-rabbit-year" class="headerlink" title="first spam of rabbit year"></a>first spam of rabbit year</h1><p>提示：兔年的第一天stone君收到啦一份看上去像是垃圾邮件一样的东西…然而事情好像没有这么简单</p>
+<p>一个文档，一片文章和社会主义核心价值观解码</p>
+<p>解出来是rabbit又move</p>
+<p>根据题目提示，垃圾邮件解码，也称spammimic</p>
+<p>解码出来是与佛论禅的解码</p>
+<p> &amp;​​​​‍‎‏auD5​​​​‏‍​v’&lt;)​​​​‏‍‌<code>h​​​​‎​‏&#123;dF6C_*&#39;Jrcqzrh&amp;ZaF&gt;</code>g^​​​​‏‍‌Hr’}vuHZJB​​​​‎​‏%~}_H5?gu​​​​‌‏‏;q​​​​‍‏‌)”&lt;rA?{sH2{IfafKfu&#x3D;6w_tip:47&amp;13</p>
+<p>其实看不太出来是什么，放到文本里面发现内容比较多，猜测是0宽</p>
+<p>（大佬是直接看出来是0宽的，学到了）</p>
+<p>tip:47&amp;13，提醒在这了，应该是经验告诉的47和13可能是rot编码</p>
+<p>解出来是EnoOoO1G</p>
+<p>这里开始整理一下，</p>
+<p>我们拿到了三个信息</p>
+<p>&amp;​​​​‍‎‏auD5​​​​‏‍​v’&lt;)​​​​‏‍‌<code>h​​​​‎​‏&#123;dF6C_*&#39;Jrcqzrh&amp;ZaF&gt;</code>g^​​​​‏‍‌Hr’}vuHZJB​​​​‎​‏%~}<em>H5?gu​​​​‌‏‏;q​​​​‍‏‌)”&lt;rA?{sH2{IfafKfu&#x3D;6w</em></p>
+<p>EnoOoO1G</p>
+<p>rot编码47 13</p>
+<p>OK，接下来</p>
+<p>将第一个信息进行rot47解码</p>
+<p>U2FsdGVkX19L5uer0YVyC4BKC9U+2um18&#x2F;wCVNGFw+yqTON0wdn8FjBXQkCpnLDwaLx727z7FleH0</p>
+<p>将第二个信息rot13解码</p>
+<p>RabBbB1T</p>
+<p>最后根据提示，rabbit解码</p>
+<p>密文是</p>
+<p>U2FsdGVkX19L5uer0YVyC4BKC9U+2um18&#x2F;wCVNGFw+yqTON0wdn8FjBXQkCpnLDwaLx727z7FleH0</p>
+<p>密码是</p>
+<p>RabBbB1T</p>
+<p>解出来flag</p>
+<p>NKCTF{H4Ppy_tH3_Y34r_0f_R4BbBbbbB1tTtTtT}</p>
+<h1 id="easy-music"><a href="#easy-music" class="headerlink" title="easy_music"></a>easy_music</h1><p>提示：你知道三个8位密码的解密嘛</p>
+<p>提示提醒我们，可能是openpuff</p>
+<p>里面只有音频</p>
+<p>010看看</p>
+<p>尾部</p>
+<p>psdC:01374890</p>
+<p>其中一个passworddedaol</p>
+<p>音频莫斯、敲击码、ascii其中一个</p>
+<p>根据提示是ascii</p>
+<p>得到psdA:83979367</p>
+<p>看看频谱图</p>
+<p>PsdB:74208645</p>
+<p>这里使用openpuff</p>
+<p>打开openpuff  点击unhide</p>
+<p>NKCTF{52d446a51c6896af878f872e0d748118}</p>
+<p>ps:</p>
+<p>其实音频还可以有隐写，MP3Stego，这题没用到</p>
+<p>MP3Stego要密码的，所以没考虑这个</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-04-18</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2023/04/18/刷题 - 副本/,BigbigPeanut’s blog,2023-04-18到04-21刷题记录2,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/2023/04/18/%E5%88%B7%E9%A2%98%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC/" title="2023-04-18到04-21刷题记录3">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
